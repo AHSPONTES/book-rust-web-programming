@@ -1,36 +1,28 @@
+mod processes;
 mod state;
-
-use serde_json::{json, value::Value, Map};
-use state::{read_file, write_to_file};
-use std::env;
-
 mod to_do;
 
-use to_do::structs::traits::create::Create;
+use processes::process_input;
+use serde_json::{value::Value, Map};
+use state::read_file;
+use std::env;
 use to_do::to_do_factory;
-use to_do::ItemTypes;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let status: &String = &args[1];
-    let title: &String = &args[2];
-    let file_name: &str = "./state.json";
 
+    let command = &args[1];
+    let title = &args[2];
+
+    let file_name = "./state.json";
     let mut state: Map<String, Value> = read_file(file_name);
-    println!("{:?}", state);
 
-    state.insert(title.to_string(), json!(status));
-    write_to_file(file_name, &mut state);
+    let status = match &state.get(*&title) {
+        Some(result) => result.to_string().replace('\"', ""),
+        None => String::from("pending"),
+    };
 
-    let to_do_item: Result<ItemTypes, &'static str> = to_do_factory("pending", "washing");
+    let item = to_do_factory(&status, title).expect(&status);
 
-    match to_do_item.unwrap() {
-        ItemTypes::Pending(item) => item.create(&item.super_struct.title),
-        ItemTypes::Done(item) => {
-            println!(
-                "it's a done item with the title: {}",
-                item.super_struct.title
-            );
-        }
-    }
+    process_input(item, command.to_string(), &state);
 }
