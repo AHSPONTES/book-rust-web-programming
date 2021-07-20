@@ -1,0 +1,11 @@
+/home/andre/Projetos/book_RustWebProgramming/book-rust-web-programming/ch3_handling_http_requests/target/debug/deps/tinyvec-7bbc9657d31e61c9.rmeta: /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/lib.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/array.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/array/generated_impl.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/arrayvec.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/arrayvec_drain.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/slicevec.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/tinyvec.rs
+
+/home/andre/Projetos/book_RustWebProgramming/book-rust-web-programming/ch3_handling_http_requests/target/debug/deps/tinyvec-7bbc9657d31e61c9.d: /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/lib.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/array.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/array/generated_impl.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/arrayvec.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/arrayvec_drain.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/slicevec.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/tinyvec.rs
+
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/lib.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/array.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/array/generated_impl.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/arrayvec.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/arrayvec_drain.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/slicevec.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/tinyvec-1.3.0/src/tinyvec.rs:
