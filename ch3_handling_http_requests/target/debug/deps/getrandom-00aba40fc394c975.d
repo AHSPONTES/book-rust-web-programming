@@ -1,0 +1,11 @@
+/home/andre/Projetos/book_RustWebProgramming/book-rust-web-programming/ch3_handling_http_requests/target/debug/deps/getrandom-00aba40fc394c975.rmeta: /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/lib.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/error.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/util.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/error_impls.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/util_libc.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/use_file.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/linux_android.rs
+
+/home/andre/Projetos/book_RustWebProgramming/book-rust-web-programming/ch3_handling_http_requests/target/debug/deps/getrandom-00aba40fc394c975.d: /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/lib.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/error.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/util.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/error_impls.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/util_libc.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/use_file.rs /home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/linux_android.rs
+
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/lib.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/error.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/util.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/error_impls.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/util_libc.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/use_file.rs:
+/home/andre/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.16/src/linux_android.rs:
