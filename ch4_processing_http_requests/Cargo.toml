@@ -1,0 +1,11 @@
+[package]
+name = "ch4_processing_http_requests"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-rt = "1.0"
+actix-web = "2"
+serde_json = { version = "1.0.64", features = ["alloc"], default-features = false }
