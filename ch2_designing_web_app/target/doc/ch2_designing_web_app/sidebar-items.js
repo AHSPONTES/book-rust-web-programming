@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["generate_float","This function generates a float number using a number generator passed into the function."],["main",""]],"struct":[["User","This struct defines a user"]],"trait":[["IsUser","This trait defines the struct to be a user."]]});
