@@ -1,16 +1,16 @@
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct Base {
     pub title: String,
     pub status: String,
 }
 
 impl Base {
-    pub fn new(input_title: &str, input_status: &str) -> Base {
+    pub fn new(title: &str, status: &str) -> Base {
         Base {
-            title: input_title.to_string(),
-            status: input_status.to_string(),
+            title: title.to_string(),
+            status: status.to_string(),
         }
     }
 }

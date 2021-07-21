@@ -1,11 +1,11 @@
 use actix_web::{Error, HttpRequest, HttpResponse, Responder};
 use futures::future::{ready, Ready};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
 use crate::to_do::structs::base::Base;
 use crate::to_do::ItemTypes;
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct ToDoItems {
     pub pending_items: Vec<Base>,
     pub done_items: Vec<Base>,
