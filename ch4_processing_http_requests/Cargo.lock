@@ -458,6 +458,7 @@ name = "ch4_processing_http_requests"
 version = "0.1.0"
 dependencies = [
  "actix-rt",
+ "actix-service",
  "actix-web",
  "futures",
  "serde",
