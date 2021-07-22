@@ -4,3 +4,22 @@ pub fn read_file(file_path: &str) -> String {
     let data: String = fs::read_to_string(file_path).expect("Unable to read_file");
     data
 }
+
+pub fn add_component(component_tag: String, html_data: String) -> String {
+    let css_tag: String = format!("{{{{{}_CSS}}}}", component_tag.to_uppercase());
+    let html_tag: String = format!("{}_HTML", component_tag.to_uppercase());
+
+    let css_path =
+        String::from("./css/components/") + &component_tag.to_lowercase() + &String::from(".css");
+    let css_loaded = read_file(&css_path);
+
+    let html_path = String::from("./templates/components/")
+        + &component_tag.to_lowercase()
+        + &String::from(".html");
+    let html_loaded = read_file(&html_path);
+
+    let html_data = html_data.replace(html_tag.as_str(), &html_loaded);
+    let html_data = html_data.replace(css_tag.as_str(), &css_loaded);
+
+    html_data
+}
