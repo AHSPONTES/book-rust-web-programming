@@ -6,14 +6,16 @@ function renderItems(items, processType, elementId, processFunction) {
 		let title = items[i]["title"];
 		let placeholderId = processType + "-" + title.replaceAll(" ", "-");
 		placeholder +=
-			"<div>" +
+			'<div class="itemContainer">' +
+			"<p>" +
 			title +
-			"<button " +
+			"</p>" +
+			'<div class="actionButton" ' +
 			'id="' +
 			placeholderId +
 			'">' +
 			processType +
-			"</button>" +
+			"</div>" +
 			"</div>";
 		itemsMeta.push({ id: placeholderId, title: title });
 	}
@@ -82,7 +84,6 @@ function createItem() {
 	let title = document.getElementById("name");
 	let call = apiCall("/item/create/" + title.value, "POST");
 	call.send();
-	getItems();
 	document.getElementById("name").value = null;
 }
 
