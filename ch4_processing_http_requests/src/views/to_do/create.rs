@@ -1,20 +1,33 @@
+use crate::diesel;
+use diesel::prelude::*;
+
 use actix_web::HttpRequest;
 use actix_web::Responder;
-use serde_json::{value::Value, Map};
 
 use super::utils::return_state;
-use crate::processes::process_input;
-use crate::state::read_file;
-use crate::to_do;
+use crate::database::establish_connection;
+use crate::models::item::item::Item;
+use crate::models::item::new_item::NewItem;
+use crate::schema::to_do;
 
 pub async fn create(req: HttpRequest) -> impl Responder {
-    let state: Map<String, Value> = read_file("./state.json");
-
     let title = req.match_info().get("title").unwrap();
 
-    let item = to_do::to_do_factory(&String::from("pending"), title).expect("create");
+    let connection = establish_connection();
 
-    process_input(item, "create".to_string(), &state);
+    let items = to_do::table
+        .filter(to_do::columns::title.eq(title))
+        .order(to_do::columns::id.asc())
+        .load::<Item>(&connection)
+        .unwrap();
+
+    if items.len() == 0 {
+        let new_post = NewItem::new(title.to_string());
+
+        let _ = diesel::insert_into(to_do::table)
+            .values(&new_post)
+            .execute(&connection);
+    }
 
     return_state()
 }
