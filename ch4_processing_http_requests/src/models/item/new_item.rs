@@ -8,7 +8,7 @@ pub struct NewItem {
     pub user_id: i32,
 }
 impl NewItem {
-    pub fn new(title: String) -> NewItem {
+    pub fn new(title: String, user_id: i32) -> NewItem {
         NewItem {
             title,
             status: String::from("pending"),

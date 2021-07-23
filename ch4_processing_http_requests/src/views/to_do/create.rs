@@ -22,7 +22,7 @@ pub async fn create(req: HttpRequest) -> impl Responder {
         .unwrap();
 
     if items.len() == 0 {
-        let new_post = NewItem::new(title.to_string());
+        let new_post = NewItem::new(title.to_string(), 1);
 
         let _ = diesel::insert_into(to_do::table)
             .values(&new_post)
