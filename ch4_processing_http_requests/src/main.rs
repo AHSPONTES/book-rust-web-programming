@@ -3,7 +3,8 @@ extern crate diesel;
 extern crate dotenv;
 
 use actix_service::Service;
-use actix_web::{App, HttpServer};
+use actix_web::{App, HttpResponse, HttpServer};
+use futures::future::{ok, Either};
 
 mod auth;
 mod database;
@@ -20,17 +21,28 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         let app = App::new()
             .wrap_fn(|req, srv| {
+                let passed: bool;
+
                 if *&req.path().contains("/item/") {
                     match auth::process_token(&req) {
-                        Ok(_token) => println!("the token is passable"),
-                        Err(message) => println!("token error: {}", message),
+                        Ok(_token) => {
+                            passed = true;
+                        }
+                        Err(message) => {
+                            passed = false;
+                        }
                     }
+                } else {
+                    passed = true;
                 }
-                let fut = srv.call(req);
-                async {
-                    let result = fut.await?;
-                    Ok(result)
-                }
+
+                let end_result = match passed {
+                    true => Either::Left(srv.call(req)),
+                    false => Either::Right(ok(
+                        req.into_response(HttpResponse::Unauthorized().finish().into_body())
+                    )),
+                };
+                end_result
             })
             .configure(views::views_factory);
         app
