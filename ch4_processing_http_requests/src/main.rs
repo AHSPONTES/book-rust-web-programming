@@ -12,9 +12,7 @@ mod auth;
 mod database;
 mod json_serialization;
 mod models;
-mod processes;
 mod schema;
-mod state;
 mod to_do;
 mod views;
 
@@ -32,7 +30,7 @@ async fn main() -> std::io::Result<()> {
                         Ok(_token) => {
                             passed = true;
                         }
-                        Err(message) => {
+                        Err(_message) => {
                             passed = false;
                         }
                     }
