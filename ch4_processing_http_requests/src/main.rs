@@ -4,7 +4,9 @@ extern crate dotenv;
 
 use actix_service::Service;
 use actix_web::{App, HttpResponse, HttpServer};
+use env_logger;
 use futures::future::{ok, Either};
+use log;
 
 mod auth;
 mod database;
@@ -18,9 +20,11 @@ mod views;
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
+    env_logger::init();
     HttpServer::new(|| {
         let app = App::new()
             .wrap_fn(|req, srv| {
+                let request_url: String = String::from(*&req.uri().path().clone());
                 let passed: bool;
 
                 if *&req.path().contains("/item/") {
@@ -42,7 +46,12 @@ async fn main() -> std::io::Result<()> {
                         req.into_response(HttpResponse::Unauthorized().finish().into_body())
                     )),
                 };
-                end_result
+
+                async move {
+                    let result = end_result.await?;
+                    log::info!("{} -> {}", request_url, &result.status());
+                    Ok(result)
+                }
             })
             .configure(views::views_factory);
         app
@@ -51,22 +60,3 @@ async fn main() -> std::io::Result<()> {
     .run()
     .await
 }
-
-/*
-let args: Vec<String> = env::args().collect();
-
-let command = &args[1];
-let title = &args[2];
-
-let file_name = "./state.json";
-let mut state: Map<String, Value> = read_file(file_name);
-
-let status = match &state.get(*&title) {
-    Some(result) => result.to_string().replace('\"', ""),
-    None => String::from("pending"),
-};
-
-let item = to_do_factory(&status, title).expect(&status);
-
-process_input(item, command.to_string(), &state);
-*/

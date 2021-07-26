@@ -7,6 +7,7 @@ use crate::database::establish_connection;
 use crate::json_serialization::login::Login;
 use crate::models::user::user::User;
 use crate::schema::users;
+use log;
 
 pub async fn login(credentials: web::Json<Login>) -> HttpResponse {
     let username: String = credentials.username.clone();
@@ -21,6 +22,10 @@ pub async fn login(credentials: web::Json<Login>) -> HttpResponse {
     if users.len() == 0 {
         HttpResponse::NotFound().await.unwrap()
     } else if users.len() > 1 {
+        log::error!(
+            "multiple users have the username: {}",
+            credentials.username.clone()
+        );
         HttpResponse::Conflict().await.unwrap()
     } else {
         match users[0].clone().verify(password) {
