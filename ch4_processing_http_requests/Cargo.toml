@@ -13,7 +13,7 @@ bcrypt = "0.8.2"
 diesel = { version = "1.4.4", features = ["postgres"] }
 dotenv = "0.15.0"
 env_logger = "0.8.1"
-futures = "0.3.5"
+futures = "0.3.7"
 hmac = "0.8.1"
 jwt = "0.9.0"
 log = "0.4.11"
@@ -21,3 +21,6 @@ serde = "1.0"
 serde_json = { version = "1.0", features = ["alloc"], default-features = false }
 sha2 = "0.9"
 uuid = { version = "0.8", features = ["v4", "serde"] }
+
+# Needed for Postgres.
+openssl = "*"
