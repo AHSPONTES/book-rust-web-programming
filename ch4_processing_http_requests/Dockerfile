@@ -1,7 +1,6 @@
-FROM rust:1.43.1
+FROM rust:1.53.0
 
 RUN apt-get update -yqq && apt-get install -yqq cmake g++
-
 RUN cargo install diesel_cli --no-default-features --features postgres
 
 COPY ./css ./css
@@ -16,6 +15,7 @@ COPY ./diesel.toml ./diesel.toml
 WORKDIR .
 
 RUN cargo build --release
+
 EXPOSE 8000
 
-CMD ["cargo","run","--release"]
+CMD ["cargo", "run", "--release"]
